@@ -23,9 +23,7 @@ function App() {
       try {
         const response = await fetch('/data.json');
         const result = await response.json();
-        if (result.success && result.data) {
-          setGraphData(result.data);
-        }
+        setGraphData(result);
       } catch (error) {
         console.error("Failed to fetch initial graph data:", error);
       }
