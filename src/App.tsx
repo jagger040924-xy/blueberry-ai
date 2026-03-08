@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const fetchInitialData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/graph/init');
+        const response = await fetch('/data.json');
         const result = await response.json();
         if (result.success && result.data) {
           setGraphData(result.data);
@@ -38,15 +38,15 @@ function App() {
       const cleanHandle = handle.replace('@', '');
       const response = await fetch(`http://127.0.0.1:5000/api/graph/expand/${cleanHandle}`);
       const result = await response.json();
-      
+
       if (result.success && result.data) {
         setGraphData(prev => {
           const existingNodeIds = new Set(prev.nodes.map(n => n.id));
           const newNodes = result.data.nodes.filter((n: NodeData) => !existingNodeIds.has(n.id));
-          
+
           const existingLinks = new Set(prev.links.map(l => `${l.source}-${l.target}`));
           const newLinks = result.data.links.filter((l: LinkData) => !existingLinks.has(`${l.source}-${l.target}`));
-          
+
           return {
             nodes: [...prev.nodes, ...newNodes],
             links: [...prev.links, ...newLinks]
@@ -59,33 +59,33 @@ function App() {
   };
 
   return (
-    <div 
-      style={{ 
-      display: 'flex', 
-      width: '100vw', 
-      height: '100vh', 
-      overflow: 'hidden',
-      backgroundColor: '#050505'
-    }}>
+    <div
+      style={{
+        display: 'flex',
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+        backgroundColor: '#050505'
+      }}>
       <div style={{ zIndex: 20, position: 'relative' }}>
-        <Sidebar 
-          nodes={graphData.nodes as unknown as NodeData[]} 
+        <Sidebar
+          nodes={graphData.nodes as unknown as NodeData[]}
           onNodeSelect={handleNodeSelect}
           selectedNodeId={selectedNode?.id}
         />
       </div>
-      
+
       <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
-        
+
         {/* Layer 1: Graph3D (Permanent Mount Background) */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
-          <Graph3D 
-            data={graphData as any} 
+          <Graph3D
+            data={graphData as any}
             onNodeClick={handleNodeSelect}
             selectedNodeId={selectedNode?.id}
           />
         </div>
-        
+
         {/* Layer 2: UI Header Overlay */}
         <div style={{
           position: 'absolute',
@@ -141,9 +141,9 @@ function App() {
         {/* Layer 3: Profile Card Container */}
         {selectedNode && (
           <div style={{ position: 'absolute', top: 0, right: 0, zIndex: 100 }}>
-            <ProfileCard 
-              node={selectedNode} 
-              onClose={clearSelection} 
+            <ProfileCard
+              node={selectedNode}
+              onClose={clearSelection}
               expandNetwork={expandNetwork}
             />
           </div>
@@ -152,7 +152,7 @@ function App() {
       </div>
       {/* Geek Info Modal */}
       {showModal && (
-        <div 
+        <div
           onClick={() => setShowModal(false)}
           style={{
             position: 'absolute',
@@ -167,7 +167,7 @@ function App() {
             animation: 'fadeIn 0.2s ease-out'
           }}
         >
-          <div 
+          <div
             onClick={(e) => e.stopPropagation()}
             style={{
               width: '450px',
@@ -180,7 +180,7 @@ function App() {
               position: 'relative'
             }}
           >
-            <button 
+            <button
               onClick={() => setShowModal(false)}
               style={{
                 position: 'absolute', top: '16px', right: '16px',
@@ -193,7 +193,7 @@ function App() {
             <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500" style={{ margin: '0 0 20px 0', fontSize: '24px', fontWeight: 700 }}>
               Welcome to AI Nexus &#129744;
             </h2>
-            
+
             <div style={{ marginBottom: '20px' }}>
               <div className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 font-bold text-lg" style={{ marginBottom: '6px' }}>Expand Network</div>
               <div style={{ color: '#94a3b8', fontSize: '14px', lineHeight: 1.6 }}>
