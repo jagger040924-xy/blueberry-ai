@@ -62,20 +62,19 @@ const Graph3D: React.FC<Graph3DProps> = ({ data, onNodeClick, selectedNodeId }) 
   // Adjust Gravity & Force Parameters
   useEffect(() => {
     if (fgRef.current && graphData.nodes.length > 0) {
-      // 恢复完美的物理引力: 增强排斥力，加长连线距离
-      const charge = fgRef.current.d3Force('charge');
-      if (charge) charge.strength(-400); // 把节点推开，防止名字和球体挤在一起
+      // 1. 恢复完美的物理引力 (Physics Tuning):
       
-      const link = fgRef.current.d3Force('link');
-      if (link) link.distance(120); // 给节点留出呼吸空间
+      // 增强排斥力 (Charge)：必须把节点推开，防止名字和球体挤在一起。
+      fgRef.current.d3Force('charge')?.strength(-400);
+      
+      // 加长连线距离 (Link)：给节点留出呼吸空间。
+      fgRef.current.d3Force('link')?.distance(120);
 
       // Center force 确保所有节点微微向中心聚拢，但不挤在一起
-      const centerForce = fgRef.current.d3Force('center');
-      if (centerForce) {
-          centerForce.strength(0.05);
-      }
+      fgRef.current.d3Force('center')?.strength(0.05);
       
-      fgRef.current.d3ReheatSimulation(); // 重新激活物理引擎
+      // (关键) 重新激活引擎：设置完力学参数后，请确保调用了
+      fgRef.current.d3ReheatSimulation();
     }
   }, [graphData.nodes.length]);
 
