@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "id": "136361303",
+      "name": "Vogue Magazine",
+      "category": "Media",
+      "followers": 14329981
+    },
+    {
+      "id": "348379865",
+      "name": "Dior",
+      "category": "Fashion Icon",
+      "followers": 9108636
+    },
+    {
+      "id": "27844479",
+      "name": "British Vogue",
+      "category": "Fashion Icon",
+      "followers": 3534443
+    },
+    {
+      "id": "16913418",
+      "name": "gucci",
+      "category": "Fashion Icon",
+      "followers": 7037296
+    },
+    {
+      "id": "21401466",
+      "name": "Vogue Runway",
+      "category": "Fashion Icon",
+      "followers": 2768907
+    },
+    {
+      "id": "73359920",
+      "name": "Valentino",
+      "category": "Fashion Icon",
+      "followers": 2313814
+    },
+    {
+      "id": "11319582",
+      "name": "highsnobiety",
+      "category": "Media",
+      "followers": 372066
+    },
+    {
+      "id": "28990676",
+      "name": "Ronnie Fieg",
+      "category": "Fashion Icon",
+      "followers": 241673
+    },
+    {
+      "id": "3289428555",
+      "name": "Street Night Live",
+      "category": "Fashion Icon",
+      "followers": 68641
+    },
+    {
+      "id": "1206659460627943425",
+      "name": "Throwing Fits",
+      "category": "Fashion Icon",
+      "followers": 65236
+    },
+    {
+      "id": "21073251",
+      "name": "Sneaker Freaker",
+      "category": "Fashion Icon",
+      "followers": 326545
+    },
+    {
+      "id": "18949998",
+      "name": "atmos USA",
+      "category": "Fashion Icon",
+      "followers": 129973
+    },
+    {
+      "id": "21701757",
+      "name": "GQ Magazine",
+      "category": "Media",
+      "followers": 1301410
+    },
+    {
+      "id": "33900164",
+      "name": "British GQ",
+      "category": "Fashion Icon",
+      "followers": 317581
+    },
+    {
+      "id": "1141067073117970433",
+      "name": "GQ Sports",
+      "category": "Fashion Icon",
+      "followers": 27031
+    },
+    {
+      "id": "15475639",
+      "name": "Chris Black",
+      "category": "Fashion Icon",
+      "followers": 60469
+    },
+    {
+      "id": "62947675",
+      "name": "Flexington Ave Local",
+      "category": "Fashion Icon",
+      "followers": 37730
+    }
+  ],
+  "links": [
+    {
+      "source": "136361303",
+      "target": "348379865"
+    },
+    {
+      "source": "136361303",
+      "target": "27844479"
+    },
+    {
+      "source": "136361303",
+      "target": "16913418"
+    },
+    {
+      "source": "136361303",
+      "target": "21401466"
+    },
+    {
+      "source": "136361303",
+      "target": "73359920"
+    },
+    {
+      "source": "11319582",
+      "target": "28990676"
+    },
+    {
+      "source": "11319582",
+      "target": "3289428555"
+    },
+    {
+      "source": "11319582",
+      "target": "1206659460627943425"
+    },
+    {
+      "source": "11319582",
+      "target": "21073251"
+    },
+    {
+      "source": "11319582",
+      "target": "18949998"
+    },
+    {
+      "source": "21701757",
+      "target": "33900164"
+    },
+    {
+      "source": "21701757",
+      "target": "11319582"
+    },
+    {
+      "source": "21701757",
+      "target": "1141067073117970433"
+    },
+    {
+      "source": "21701757",
+      "target": "15475639"
+    },
+    {
+      "source": "21701757",
+      "target": "62947675"
+    }
+  ]
+}
